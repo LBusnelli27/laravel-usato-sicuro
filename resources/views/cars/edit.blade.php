@@ -4,6 +4,17 @@
     <h1>
         Edit nuova auto
     </h1>
+    <div>
+        @if ($errors->any())
+            <div>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+    </div>
     <form action="{{ route('cars.update', $car) }}" method="POST">
         @csrf
         @method('PUT')
@@ -32,4 +43,5 @@
 
         <button type="submit">Send</button>
     </form>
+
 @endsection

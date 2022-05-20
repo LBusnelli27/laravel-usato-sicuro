@@ -16,6 +16,11 @@
                     {{ $car->numero_telaio }}
                 </h4>
                 <a href="{{ route('cars.show', $car->id) }}">Dettagli</a>
+                <form action="{{ route('cars.destroy', $car->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit">Delete</button>
+                </form>
             </div>
         @endforeach
     </div>

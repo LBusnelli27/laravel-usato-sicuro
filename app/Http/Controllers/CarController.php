@@ -82,18 +82,21 @@ class CarController extends Controller
      */
     public function update(Request $request, Car $car)
     {
-        $data = $request->all();
-
         $request->validate([
-            'numero_telaio' => 'required',
+            'numero_telaio' => 'required|min:3',
             'model' => 'required',
             'porte' => 'required',
             'data_immatricolazione' => 'required|date',
             'marca' => 'required',
             'alimentazione' => 'required',
             'prezzo' => 'required',
+        ], [
+            'required' => 'Campo richiesto',
+            /* 'model.required' => 'Campo model richiesto', */
         ]);
-
+        
+        $data = $request->all();
+        
         $car->numero_telaio= $data["numero_telaio"];
         $car->model=$data["model"]; 
         $car->porte=$data["porte"];
@@ -103,8 +106,7 @@ class CarController extends Controller
         $car->prezzo=$data["prezzo"];
         $car->save();
 
-        return redirect()->route("cars.show", $car->id, );
-        /* dd($data); */
+        return redirect()->route("cars.show", $car->id);
     }
 
     /**
@@ -113,8 +115,9 @@ class CarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Car $car)
     {
-        //
+        $car->delete();
+        return redirect()->route('cars.index');
     }
 }

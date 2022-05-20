@@ -7,16 +7,8 @@
         </h1>
         <a href="{{ route('home') }}">Home page</a>
         <a href="{{ route('cars.index') }}">Lista Completa</a>
+
         <div>
-            @if ($errors->any())
-                {
-                <div class="alert alert-success">
-                    @foreach ($errors->all() as $error)
-                        {{ $error }}
-                    @endforeach
-                </div>
-                }
-            @endif
             <h3>
                 {{ $car->model }} - {{ $car->marca }}
             </h3>
