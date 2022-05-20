@@ -6,6 +6,11 @@
     </h1>
     <a href="{{ route('home') }}">Torna alla Home</a>
     <a href="{{ route('cars.create') }}">Aggiungi Auto</a>
+    @if (session('message'))
+        <div>
+            {{ session('message') }}
+        </div>
+    @endif
     <div class="grid">
         @foreach ($cars as $car)
             <div>
