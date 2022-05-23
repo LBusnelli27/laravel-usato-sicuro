@@ -15,11 +15,16 @@ class CreateCarsTable extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('brand_id');
+            $table
+            ->foreign('brand_id')
+            ->references('id')
+            ->on('brands');
             $table->string("numero_telaio", 20)->unique();
-            $table->string("model", 20); 
-            $table->tinyInteger("porte"); 
+            $table->string("model", 20);
+            $table->tinyInteger("porte");
             $table->date("data_immatricolazione");
-            $table->string("marca",20);
+            //$table->string("marca",20);
             $table->boolean("is_new")->default(true);
             $table->string("alimentazione");
             $table->float("prezzo", 8,2)->default(0);
@@ -34,6 +39,10 @@ class CreateCarsTable extends Migration
      */
     public function down()
     {
+        Schema::table('cars', function(Blueprint $table){
+            $table->dropForeign(['brand_id']);
+            $table->dropcolumn('brand_id');
+        });
         Schema::dropIfExists('cars');
     }
 }

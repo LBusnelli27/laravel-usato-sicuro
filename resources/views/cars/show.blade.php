@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-12">
                 <h1>
-                    {{ $car->model }} - {{ $car->marca }}
+                    {{ ucFirst($car->model) }} - {{  ucFirst($car->brand->name) }}
                 </h1>
                 @include('partials.nav')
                 <a href="{{ route('cars.edit', $car->id) }}">Edit car</a>

@@ -33,7 +33,11 @@
             value="{{ $car->data_immatricolazione }}">
 
         <label for="marca">Marca</label>
-        <input type="text" name="marca" id="marca" value="{{ $car->marca }}">
+        <select name="cars" id="cars">
+            @foreach ($brands as $brand)
+                <option value="{{ $brand->name }}">{{ $brand->name }}</option>
+            @endforeach
+        </select>
 
         <label for="alimentazione">Alimentazione</label>
         <input type="text" name="alimentazione" id="alimentazione" value="{{ $car->alimentazione }}">

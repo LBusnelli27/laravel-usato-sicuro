@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Car;
+use App\Brand;
 
 use Illuminate\Http\Request;
 
@@ -35,11 +36,11 @@ class CarController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   
+    {
         $data = $request->all();
         $car = new Car();
             $car->numero_telaio= $data["numero_telaio"];
-            $car->model=$data["model"]; 
+            $car->model=$data["model"];
             $car->porte=$data["porte"];
             $car->data_immatricolazione=$data["data_immatricolazione"];
             $car->marca=$data["marca"];
@@ -70,7 +71,8 @@ class CarController extends Controller
      */
     public function edit(Car $car)
     {
-        return view('cars.edit', compact('car'));
+        $brands = Brand::all();
+        return view('cars.edit', ['car' => $car, 'brands' => $brands]);
     }
 
     /**
@@ -94,11 +96,11 @@ class CarController extends Controller
             'required' => 'Campo richiesto',
             /* 'model.required' => 'Campo model richiesto', */
         ]);
-        
+
         $data = $request->all();
-        
+
         $car->numero_telaio= $data["numero_telaio"];
-        $car->model=$data["model"]; 
+        $car->model=$data["model"];
         $car->porte=$data["porte"];
         $car->data_immatricolazione=$data["data_immatricolazione"];
         $car->marca=$data["marca"];

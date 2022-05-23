@@ -17,7 +17,7 @@
                     @foreach ($cars as $car)
                         <div>
                             <h3>
-                                {{ $car->marca }}
+                                {{ ucFirst($car->model) }} - {{  ucFirst($car->brand->name) }}
                             </h3>
                             <h4>
                                 {{ $car->numero_telaio }}
