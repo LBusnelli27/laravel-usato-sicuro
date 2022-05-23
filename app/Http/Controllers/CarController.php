@@ -89,7 +89,7 @@ class CarController extends Controller
             'model' => 'required',
             'porte' => 'required',
             'data_immatricolazione' => 'required|date',
-            'marca' => 'required',
+            'brand_id' => 'required',
             'alimentazione' => 'required',
             'prezzo' => 'required',
         ], [
@@ -103,7 +103,7 @@ class CarController extends Controller
         $car->model=$data["model"];
         $car->porte=$data["porte"];
         $car->data_immatricolazione=$data["data_immatricolazione"];
-        $car->marca=$data["marca"];
+        $car->brand_id=$data["brand_id"];
         $car->alimentazione=$data["alimentazione"];
         $car->prezzo=$data["prezzo"];
         $car->save();

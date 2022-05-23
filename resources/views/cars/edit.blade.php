@@ -21,30 +21,30 @@
 
         <label for="numero_telaio">Numero di telaio</label>
         <input type="text" name="numero_telaio" id="numero_telaio" value="{{ $car->numero_telaio }}">
-
+        <br>
         <label for="model">Modello</label>
         <input type="text" name="model" id="model" value="{{ $car->model }}">
-
+        <br>
         <label for="porte">Porte</label>
         <input type="text" name="porte" id="porte" value="{{ $car->porte }}">
-
+        <br>
         <label for="data_immatricolazione">Immatricolazione</label>
         <input type="text" name="data_immatricolazione" id="data_immatricolazione"
             value="{{ $car->data_immatricolazione }}">
-
-        <label for="marca">Marca</label>
-        <select name="cars" id="cars">
+        <br>
+        <label for="brand_id">Marca</label>
+        <select name="brand_id" id="brand_id">
             @foreach ($brands as $brand)
-                <option value="{{ $brand->name }}">{{ $brand->name }}</option>
+                <option value="{{ $brand->id }}">{{ $brand->name }}</option>
             @endforeach
         </select>
-
+        <br>
         <label for="alimentazione">Alimentazione</label>
         <input type="text" name="alimentazione" id="alimentazione" value="{{ $car->alimentazione }}">
-
+        <br>
         <label for="prezzo">Prezzo</label>
         <input type="text" name="prezzo" id="prezzo" value="{{ $car->prezzo }}">
-
+        <br>
         <button type="submit">Send</button>
     </form>
 
