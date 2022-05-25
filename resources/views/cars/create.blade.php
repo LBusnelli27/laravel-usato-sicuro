@@ -11,6 +11,7 @@
         <br>
         <label for="model">Modello</label>
         <input type="text" name="model" id="model">
+        {{-- value="{{ old('model') ?? '' }} --}}
         <br>
         <label for="porte">Porte</label>
         <input type="text" name="porte" id="porte">
@@ -18,8 +19,8 @@
         <label for="data_immatricolazione">Immatricolazione</label>
         <input type="date" name="data_immatricolazione" id="data_immatricolazione">
         <br>
-        <label for="marca">Marca</label>
-        <input type="text" name="marca" id="marca">
+        <label for="brand_id">Marca</label>
+        <input type="text" name="brand_id" id="brand_id">
         <br>
         <label for="alimentazione">Alimentazione</label>
         <input type="text" name="alimentazione" id="alimentazione">
@@ -27,6 +28,8 @@
         <label for="prezzo">Prezzo</label>
         <input type="text" name="prezzo" id="prezzo">
         <br>
+        <label for="colore">Colore</label>
+        <input type="color" name="colore" id="colore">
         <button type="submit">Send</button>
     </form>
 @endsection

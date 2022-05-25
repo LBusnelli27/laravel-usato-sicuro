@@ -23,7 +23,7 @@
         <input type="text" name="numero_telaio" id="numero_telaio" value="{{ $car->numero_telaio }}">
         <br>
         <label for="model">Modello</label>
-        <input type="text" name="model" id="model" value="{{ $car->model }}">
+        <input type="text" name="model" id="model" value="{{ old('model') ?? $car->model }}">
         <br>
         <label for="porte">Porte</label>
         <input type="text" name="porte" id="porte" value="{{ $car->porte }}">
@@ -38,6 +38,13 @@
                 <option value="{{ $brand->id }}">{{ $brand->name }}</option>
             @endforeach
         </select>
+        <br>
+        <br>
+        @foreach ($colors as $color)
+        <input type="checkbox" value="{{ $color }}">
+        <span style="background-color: {{ $color->color }}; color: #fff; border-radius: .5rem; padding : 1rem">{{ $color->color }}</span>
+        @endforeach
+        <br>
         <br>
         <label for="alimentazione">Alimentazione</label>
         <input type="text" name="alimentazione" id="alimentazione" value="{{ $car->alimentazione }}">

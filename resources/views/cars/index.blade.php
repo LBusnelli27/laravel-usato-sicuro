@@ -22,6 +22,9 @@
                             <h4>
                                 {{ $car->numero_telaio }}
                             </h4>
+                            @foreach ($car->colors as $color)
+                                <div style="background-color: {{ $color->color }}">{{ $color->color }}</div>
+                            @endforeach
                             <div class="d-flex justify-content-between">
                                 <a href="{{ route('cars.show', $car->id) }}">Dettagli</a>
                                 <form action="{{ route('cars.destroy', $car->id) }}" method="POST">

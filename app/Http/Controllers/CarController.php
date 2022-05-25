@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Car;
 use App\Brand;
+use App\Color;
 
 use Illuminate\Http\Request;
 
@@ -16,7 +17,8 @@ class CarController extends Controller
     public function index()
     {
         $cars= Car::all();
-        return view("cars.index", compact("cars"));
+        $colors = Color::all();
+        return view("cars.index", compact("cars", "colors"));
     }
 
     /**
@@ -43,7 +45,7 @@ class CarController extends Controller
             $car->model=$data["model"];
             $car->porte=$data["porte"];
             $car->data_immatricolazione=$data["data_immatricolazione"];
-            $car->marca=$data["marca"];
+            $car->brand_id=$data["brand_id"];
             $car->alimentazione=$data["alimentazione"];
             $car->prezzo=$data["prezzo"];
             $car->save();
@@ -72,7 +74,8 @@ class CarController extends Controller
     public function edit(Car $car)
     {
         $brands = Brand::all();
-        return view('cars.edit', ['car' => $car, 'brands' => $brands]);
+        $colors = Color::all();
+        return view('cars.edit', compact('car', 'brands', 'colors'));
     }
 
     /**
